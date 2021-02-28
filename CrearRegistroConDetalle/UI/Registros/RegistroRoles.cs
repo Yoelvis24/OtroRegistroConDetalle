@@ -34,6 +34,8 @@ namespace CrearRegistroConDetalle.UI.Registros
             DescripcionTextBox.Clear();
             RolErrorProvider.Clear();
             AsignadoCheckBox.Checked = false;
+            FechaDateTimePicker.Value = DateTime.Now;
+          
             this.Detalle = new List<RolesDetalle>();
             CargarGrid();
         }
@@ -56,7 +58,7 @@ namespace CrearRegistroConDetalle.UI.Registros
                 DescripcionTextBox.Focus();
                 paso = false;
             }
-            if(this.Detalle.Count == 0)
+            if (this.Detalle.Count == 0)
             {
                 RolErrorProvider.SetError(RolDetalleDataGridView, "Favor de agregar un permiso");
                 PermisoIdComboBox.Focus();
@@ -65,29 +67,28 @@ namespace CrearRegistroConDetalle.UI.Registros
 
             return paso;
         }
-
+       
         private Roles LlenaClase()
         {
             Roles roles = new Roles();
             roles.RolId = (int)RolIdNumericUpDown.Value;
             roles.Descripcion = DescripcionTextBox.Text;
             roles.EsActivo = ActivoCheckBox.Checked;
+            roles.FechaCreacion = FechaDateTimePicker.Value;
 
             roles.RolesDetalle = this.Detalle;
             return roles;
         }
-
         private void LLenaCampos(Roles roles)
         {
             RolIdNumericUpDown.Value = roles.RolId;
             ActivoCheckBox.Checked = roles.EsActivo;
             DescripcionTextBox.Text = roles.Descripcion;
-
+            FechaDateTimePicker.Value = roles.FechaCreacion;
+            
             this.Detalle = roles.RolesDetalle;
             CargarGrid();
-        }
-
-
+        }        
         private bool ExisteEnBaseDeDatos()
         {
             var roles = new Roles();
@@ -161,6 +162,7 @@ namespace CrearRegistroConDetalle.UI.Registros
             }
             else
                 RolErrorProvider.SetError(RolIdNumericUpDown, "Este Id no existe");
+
         }
 
         private void AgregarButton_Click(object sender, EventArgs e)
@@ -173,7 +175,7 @@ namespace CrearRegistroConDetalle.UI.Registros
                 new RolesDetalle(
                 rolDetalleId: 0,
                 rolId: (int)RolIdNumericUpDown.Value,
-                permisoId: Convert.ToInt32(PermisoIdComboBox.Text),
+                permisoId: Convert.ToInt32(PermisoIdComboBox.SelectedIndex)+1,
                 esAsignado: AsignadoCheckBox.Checked
                 )
             );
@@ -194,8 +196,8 @@ namespace CrearRegistroConDetalle.UI.Registros
         private void RegistroRoles_Load(object sender, EventArgs e)
         {
             PermisoIdComboBox.DataSource = PermisosBLL.GetPermisos();
-            PermisoIdComboBox.DisplayMember = "PermisoId";
-            PermisoIdComboBox.ValueMember = "Descripcion";
+            PermisoIdComboBox.DisplayMember = "Nombre";
+            PermisoIdComboBox.ValueMember = "PermisoId";
         }
     }
 }

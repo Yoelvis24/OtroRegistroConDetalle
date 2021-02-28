@@ -50,18 +50,10 @@ namespace CrearRegistroConDetalle.UI.Registros
             this.ActivoCheckBox = new System.Windows.Forms.CheckBox();
             this.FechaCreacionLabel = new System.Windows.Forms.Label();
             this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.PermisoLabel = new System.Windows.Forms.Label();
-            this.PermisoIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.NombreLabel = new System.Windows.Forms.Label();
-            this.NombreTextBox = new System.Windows.Forms.TextBox();
-            this.DescripcionPermisoLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.VecesAsignadoCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.RolIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RolErrorProvider)).BeginInit();
             this.DetalleGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RolDetalleDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PermisoIdNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // RolIdNumericUpDown
@@ -114,7 +106,7 @@ namespace CrearRegistroConDetalle.UI.Registros
             // 
             this.NuevoButton.Image = ((System.Drawing.Image)(resources.GetObject("NuevoButton.Image")));
             this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NuevoButton.Location = new System.Drawing.Point(137, 460);
+            this.NuevoButton.Location = new System.Drawing.Point(121, 406);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(97, 40);
             this.NuevoButton.TabIndex = 14;
@@ -127,7 +119,7 @@ namespace CrearRegistroConDetalle.UI.Registros
             // 
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GuardarButton.Location = new System.Drawing.Point(250, 460);
+            this.GuardarButton.Location = new System.Drawing.Point(234, 406);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(97, 40);
             this.GuardarButton.TabIndex = 15;
@@ -140,7 +132,7 @@ namespace CrearRegistroConDetalle.UI.Registros
             // 
             this.EliminarButton.Image = ((System.Drawing.Image)(resources.GetObject("EliminarButton.Image")));
             this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarButton.Location = new System.Drawing.Point(362, 460);
+            this.EliminarButton.Location = new System.Drawing.Point(346, 406);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(96, 40);
             this.EliminarButton.TabIndex = 16;
@@ -171,7 +163,7 @@ namespace CrearRegistroConDetalle.UI.Registros
             this.DetalleGroupBox.Controls.Add(this.PermisoIdComboBox);
             this.DetalleGroupBox.Controls.Add(this.PermisoIdLabel);
             this.DetalleGroupBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DetalleGroupBox.Location = new System.Drawing.Point(12, 142);
+            this.DetalleGroupBox.Location = new System.Drawing.Point(12, 88);
             this.DetalleGroupBox.Name = "DetalleGroupBox";
             this.DetalleGroupBox.Size = new System.Drawing.Size(524, 312);
             this.DetalleGroupBox.TabIndex = 17;
@@ -216,7 +208,7 @@ namespace CrearRegistroConDetalle.UI.Registros
             // AsignadoCheckBox
             // 
             this.AsignadoCheckBox.AutoSize = true;
-            this.AsignadoCheckBox.Location = new System.Drawing.Point(290, 35);
+            this.AsignadoCheckBox.Location = new System.Drawing.Point(273, 38);
             this.AsignadoCheckBox.Name = "AsignadoCheckBox";
             this.AsignadoCheckBox.Size = new System.Drawing.Size(82, 21);
             this.AsignadoCheckBox.TabIndex = 2;
@@ -234,7 +226,7 @@ namespace CrearRegistroConDetalle.UI.Registros
             // ActivoCheckBox
             // 
             this.ActivoCheckBox.AutoSize = true;
-            this.ActivoCheckBox.Location = new System.Drawing.Point(220, 117);
+            this.ActivoCheckBox.Location = new System.Drawing.Point(466, 22);
             this.ActivoCheckBox.Name = "ActivoCheckBox";
             this.ActivoCheckBox.Size = new System.Drawing.Size(60, 19);
             this.ActivoCheckBox.TabIndex = 18;
@@ -245,7 +237,7 @@ namespace CrearRegistroConDetalle.UI.Registros
             // 
             this.FechaCreacionLabel.AutoSize = true;
             this.FechaCreacionLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FechaCreacionLabel.Location = new System.Drawing.Point(10, 90);
+            this.FechaCreacionLabel.Location = new System.Drawing.Point(302, 51);
             this.FechaCreacionLabel.Name = "FechaCreacionLabel";
             this.FechaCreacionLabel.Size = new System.Drawing.Size(102, 17);
             this.FechaCreacionLabel.TabIndex = 19;
@@ -254,84 +246,16 @@ namespace CrearRegistroConDetalle.UI.Registros
             // FechaDateTimePicker
             // 
             this.FechaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.FechaDateTimePicker.Location = new System.Drawing.Point(116, 86);
+            this.FechaDateTimePicker.Location = new System.Drawing.Point(410, 50);
             this.FechaDateTimePicker.Name = "FechaDateTimePicker";
-            this.FechaDateTimePicker.Size = new System.Drawing.Size(164, 23);
+            this.FechaDateTimePicker.Size = new System.Drawing.Size(113, 23);
             this.FechaDateTimePicker.TabIndex = 20;
-            // 
-            // PermisoLabel
-            // 
-            this.PermisoLabel.AutoSize = true;
-            this.PermisoLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PermisoLabel.Location = new System.Drawing.Point(301, 17);
-            this.PermisoLabel.Name = "PermisoLabel";
-            this.PermisoLabel.Size = new System.Drawing.Size(71, 17);
-            this.PermisoLabel.TabIndex = 21;
-            this.PermisoLabel.Text = "Permiso ID";
-            // 
-            // PermisoIdNumericUpDown
-            // 
-            this.PermisoIdNumericUpDown.Location = new System.Drawing.Point(378, 14);
-            this.PermisoIdNumericUpDown.Name = "PermisoIdNumericUpDown";
-            this.PermisoIdNumericUpDown.Size = new System.Drawing.Size(148, 23);
-            this.PermisoIdNumericUpDown.TabIndex = 22;
-            // 
-            // NombreLabel
-            // 
-            this.NombreLabel.AutoSize = true;
-            this.NombreLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.NombreLabel.Location = new System.Drawing.Point(302, 53);
-            this.NombreLabel.Name = "NombreLabel";
-            this.NombreLabel.Size = new System.Drawing.Size(57, 17);
-            this.NombreLabel.TabIndex = 23;
-            this.NombreLabel.Text = "Nombre";
-            // 
-            // NombreTextBox
-            // 
-            this.NombreTextBox.Location = new System.Drawing.Point(378, 50);
-            this.NombreTextBox.Name = "NombreTextBox";
-            this.NombreTextBox.Size = new System.Drawing.Size(148, 23);
-            this.NombreTextBox.TabIndex = 24;
-            // 
-            // DescripcionPermisoLabel
-            // 
-            this.DescripcionPermisoLabel.AutoSize = true;
-            this.DescripcionPermisoLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DescripcionPermisoLabel.Location = new System.Drawing.Point(301, 90);
-            this.DescripcionPermisoLabel.Name = "DescripcionPermisoLabel";
-            this.DescripcionPermisoLabel.Size = new System.Drawing.Size(76, 17);
-            this.DescripcionPermisoLabel.TabIndex = 25;
-            this.DescripcionPermisoLabel.Text = "Descripción";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(378, 86);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(148, 23);
-            this.textBox1.TabIndex = 26;
-            // 
-            // VecesAsignadoCheckBox
-            // 
-            this.VecesAsignadoCheckBox.AutoSize = true;
-            this.VecesAsignadoCheckBox.Location = new System.Drawing.Point(420, 117);
-            this.VecesAsignadoCheckBox.Name = "VecesAsignadoCheckBox";
-            this.VecesAsignadoCheckBox.Size = new System.Drawing.Size(106, 19);
-            this.VecesAsignadoCheckBox.TabIndex = 27;
-            this.VecesAsignadoCheckBox.Text = "Veces asignado";
-            this.VecesAsignadoCheckBox.UseVisualStyleBackColor = true;
             // 
             // RegistroRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 512);
-            this.Controls.Add(this.VecesAsignadoCheckBox);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.DescripcionPermisoLabel);
-            this.Controls.Add(this.NombreTextBox);
-            this.Controls.Add(this.NombreLabel);
-            this.Controls.Add(this.PermisoIdNumericUpDown);
-            this.Controls.Add(this.PermisoLabel);
+            this.ClientSize = new System.Drawing.Size(548, 455);
             this.Controls.Add(this.FechaDateTimePicker);
             this.Controls.Add(this.FechaCreacionLabel);
             this.Controls.Add(this.ActivoCheckBox);
@@ -352,7 +276,6 @@ namespace CrearRegistroConDetalle.UI.Registros
             this.DetalleGroupBox.ResumeLayout(false);
             this.DetalleGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RolDetalleDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PermisoIdNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,13 +300,6 @@ namespace CrearRegistroConDetalle.UI.Registros
         private System.Windows.Forms.Button AgregarButton;
         private System.Windows.Forms.CheckBox AsignadoCheckBox;
         private System.Windows.Forms.ComboBox PermisoIdComboBox;
-        private System.Windows.Forms.CheckBox VecesAsignadoCheckBox;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label DescripcionPermisoLabel;
-        private System.Windows.Forms.TextBox NombreTextBox;
-        private System.Windows.Forms.Label NombreLabel;
-        private System.Windows.Forms.NumericUpDown PermisoIdNumericUpDown;
-        private System.Windows.Forms.Label PermisoLabel;
         private System.Windows.Forms.DateTimePicker FechaDateTimePicker;
         private System.Windows.Forms.Label FechaCreacionLabel;
     }

@@ -15,7 +15,7 @@ namespace CrearRegistroConDetalle.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Nombre = table.Column<string>(type: "TEXT", nullable: true),
                     Descripcion = table.Column<string>(type: "TEXT", nullable: true),
-                    VecesAsignado = table.Column<bool>(type: "INTEGER", nullable: false)
+                    VecesAsignado = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -82,6 +82,21 @@ namespace CrearRegistroConDetalle.Migrations
                         principalColumn: "RolId",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Permisos",
+                columns: new[] { "PermisoId", "Descripcion", "Nombre", "VecesAsignado" },
+                values: new object[] { 1, "Acceso completo", "Alto", 0 });
+
+            migrationBuilder.InsertData(
+                table: "Permisos",
+                columns: new[] { "PermisoId", "Descripcion", "Nombre", "VecesAsignado" },
+                values: new object[] { 2, "Acceso a algunas funciones", "Medio", 0 });
+
+            migrationBuilder.InsertData(
+                table: "Permisos",
+                columns: new[] { "PermisoId", "Descripcion", "Nombre", "VecesAsignado" },
+                values: new object[] { 3, "Sin acceso", "Ninguno", 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_RolesDetalle_PermisoId",

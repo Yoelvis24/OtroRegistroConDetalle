@@ -12,7 +12,7 @@ namespace CrearRegistroConDetalle.Entidades
         public int PermisoId { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public bool VecesAsignado { get; set; }
+        public int VecesAsignado { get; set; }
 
         [ForeignKey("PermisoId")]
         public virtual List<RolesDetalle> RolesDetalle { get; set; }

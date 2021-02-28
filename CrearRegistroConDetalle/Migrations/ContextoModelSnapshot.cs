@@ -28,12 +28,35 @@ namespace CrearRegistroConDetalle.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("VecesAsignado")
+                    b.Property<int>("VecesAsignado")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("PermisoId");
 
                     b.ToTable("Permisos");
+
+                    b.HasData(
+                        new
+                        {
+                            PermisoId = 1,
+                            Descripcion = "Acceso completo",
+                            Nombre = "Alto",
+                            VecesAsignado = 0
+                        },
+                        new
+                        {
+                            PermisoId = 2,
+                            Descripcion = "Acceso a algunas funciones",
+                            Nombre = "Medio",
+                            VecesAsignado = 0
+                        },
+                        new
+                        {
+                            PermisoId = 3,
+                            Descripcion = "Sin acceso",
+                            Nombre = "Ninguno",
+                            VecesAsignado = 0
+                        });
                 });
 
             modelBuilder.Entity("CrearRegistroConDetalle.Entidades.Roles", b =>

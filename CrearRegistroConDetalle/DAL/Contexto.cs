@@ -18,5 +18,15 @@ namespace CrearRegistroConDetalle.DAL
             optionsBuilder.UseSqlite("Data Source = GestionUsuarios.Db");
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Permisos>().HasData(
+                new Permisos() { PermisoId = 1, Nombre = "Alto", Descripcion = "Acceso completo", VecesAsignado = 0 },
+                new Permisos() { PermisoId = 2, Nombre = "Medio", Descripcion = "Acceso a algunas funciones", VecesAsignado = 0 },
+                new Permisos() { PermisoId = 3, Nombre = "Ninguno", Descripcion = "Sin acceso", VecesAsignado = 0 }
+            );
+        }
     }
 }
