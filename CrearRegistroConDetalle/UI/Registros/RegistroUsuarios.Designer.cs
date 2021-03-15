@@ -294,7 +294,7 @@ namespace CrearRegistroConDetalle.UI.Registros
             this.Controls.Add(this.Aliaslabel);
             this.Controls.Add(this.usuariosIdLabel);
             this.Name = "RegistroUsuarios";
-            this.Text = "RegistroUsuarios";
+            this.Text = "Registro de Usuarios";
             this.Load += new System.EventHandler(this.RegistroUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioIdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsuarioErrorProvider)).EndInit();
