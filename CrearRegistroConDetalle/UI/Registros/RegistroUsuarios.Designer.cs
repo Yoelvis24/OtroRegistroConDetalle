@@ -34,13 +34,11 @@ namespace CrearRegistroConDetalle.UI.Registros
             this.UsuarioIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.activoCheckBox = new System.Windows.Forms.CheckBox();
             this.RolComboBox = new System.Windows.Forms.ComboBox();
-            this.IngresoDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.claveTextBox = new System.Windows.Forms.TextBox();
             this.confirmarTextBox = new System.Windows.Forms.TextBox();
             this.nombresTextBox = new System.Windows.Forms.TextBox();
             this.aliasTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.fechaIngresoLabel = new System.Windows.Forms.Label();
             this.emailLabel = new System.Windows.Forms.Label();
             this.RolLabel = new System.Windows.Forms.Label();
             this.ConfirmarLabel = new System.Windows.Forms.Label();
@@ -89,33 +87,22 @@ namespace CrearRegistroConDetalle.UI.Registros
             this.RolComboBox.Size = new System.Drawing.Size(125, 23);
             this.RolComboBox.TabIndex = 36;
             // 
-            // IngresoDateTimePicker
-            // 
-            this.IngresoDateTimePicker.Cursor = System.Windows.Forms.Cursors.Default;
-            this.IngresoDateTimePicker.CustomFormat = "dd/MM/yyyy";
-            this.IngresoDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.IngresoDateTimePicker.Location = new System.Drawing.Point(110, 115);
-            this.IngresoDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.IngresoDateTimePicker.Name = "IngresoDateTimePicker";
-            this.IngresoDateTimePicker.Size = new System.Drawing.Size(131, 23);
-            this.IngresoDateTimePicker.TabIndex = 35;
-            // 
             // claveTextBox
             // 
-            this.claveTextBox.Location = new System.Drawing.Point(289, 116);
+            this.claveTextBox.Location = new System.Drawing.Point(482, 81);
             this.claveTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.claveTextBox.Name = "claveTextBox";
             this.claveTextBox.PasswordChar = '*';
-            this.claveTextBox.Size = new System.Drawing.Size(151, 23);
+            this.claveTextBox.Size = new System.Drawing.Size(213, 23);
             this.claveTextBox.TabIndex = 34;
             // 
             // confirmarTextBox
             // 
-            this.confirmarTextBox.Location = new System.Drawing.Point(544, 118);
+            this.confirmarTextBox.Location = new System.Drawing.Point(483, 115);
             this.confirmarTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.confirmarTextBox.Name = "confirmarTextBox";
             this.confirmarTextBox.PasswordChar = '*';
-            this.confirmarTextBox.Size = new System.Drawing.Size(151, 23);
+            this.confirmarTextBox.Size = new System.Drawing.Size(212, 23);
             this.confirmarTextBox.TabIndex = 33;
             // 
             // nombresTextBox
@@ -136,25 +123,16 @@ namespace CrearRegistroConDetalle.UI.Registros
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(423, 81);
+            this.emailTextBox.Location = new System.Drawing.Point(110, 115);
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(272, 23);
+            this.emailTextBox.Size = new System.Drawing.Size(268, 23);
             this.emailTextBox.TabIndex = 30;
-            // 
-            // fechaIngresoLabel
-            // 
-            this.fechaIngresoLabel.AutoSize = true;
-            this.fechaIngresoLabel.Location = new System.Drawing.Point(8, 121);
-            this.fechaIngresoLabel.Name = "fechaIngresoLabel";
-            this.fechaIngresoLabel.Size = new System.Drawing.Size(96, 15);
-            this.fechaIngresoLabel.TabIndex = 29;
-            this.fechaIngresoLabel.Text = "Fecha de Ingreso";
             // 
             // emailLabel
             // 
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(381, 83);
+            this.emailLabel.Location = new System.Drawing.Point(12, 118);
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(36, 15);
             this.emailLabel.TabIndex = 28;
@@ -172,7 +150,7 @@ namespace CrearRegistroConDetalle.UI.Registros
             // ConfirmarLabel
             // 
             this.ConfirmarLabel.AutoSize = true;
-            this.ConfirmarLabel.Location = new System.Drawing.Point(446, 119);
+            this.ConfirmarLabel.Location = new System.Drawing.Point(384, 118);
             this.ConfirmarLabel.Name = "ConfirmarLabel";
             this.ConfirmarLabel.Size = new System.Drawing.Size(93, 15);
             this.ConfirmarLabel.TabIndex = 26;
@@ -181,7 +159,7 @@ namespace CrearRegistroConDetalle.UI.Registros
             // ClaveLabel
             // 
             this.ClaveLabel.AutoSize = true;
-            this.ClaveLabel.Location = new System.Drawing.Point(247, 119);
+            this.ClaveLabel.Location = new System.Drawing.Point(384, 81);
             this.ClaveLabel.Name = "ClaveLabel";
             this.ClaveLabel.Size = new System.Drawing.Size(36, 15);
             this.ClaveLabel.TabIndex = 25;
@@ -279,13 +257,11 @@ namespace CrearRegistroConDetalle.UI.Registros
             this.Controls.Add(this.UsuarioIdNumericUpDown);
             this.Controls.Add(this.activoCheckBox);
             this.Controls.Add(this.RolComboBox);
-            this.Controls.Add(this.IngresoDateTimePicker);
             this.Controls.Add(this.claveTextBox);
             this.Controls.Add(this.confirmarTextBox);
             this.Controls.Add(this.nombresTextBox);
             this.Controls.Add(this.aliasTextBox);
             this.Controls.Add(this.emailTextBox);
-            this.Controls.Add(this.fechaIngresoLabel);
             this.Controls.Add(this.emailLabel);
             this.Controls.Add(this.RolLabel);
             this.Controls.Add(this.ConfirmarLabel);
@@ -308,13 +284,11 @@ namespace CrearRegistroConDetalle.UI.Registros
         private System.Windows.Forms.NumericUpDown UsuarioIdNumericUpDown;
         private System.Windows.Forms.CheckBox activoCheckBox;
         private System.Windows.Forms.ComboBox RolComboBox;
-        private System.Windows.Forms.DateTimePicker IngresoDateTimePicker;
         private System.Windows.Forms.TextBox claveTextBox;
         private System.Windows.Forms.TextBox confirmarTextBox;
         private System.Windows.Forms.TextBox nombresTextBox;
         private System.Windows.Forms.TextBox aliasTextBox;
         private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.Label fechaIngresoLabel;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Label RolLabel;
         private System.Windows.Forms.Label ConfirmarLabel;

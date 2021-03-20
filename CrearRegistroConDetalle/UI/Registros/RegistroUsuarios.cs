@@ -27,7 +27,6 @@ namespace CrearRegistroConDetalle.UI.Registros
             claveTextBox.Clear();
             confirmarTextBox.Clear();
             emailTextBox.Clear();
-            IngresoDateTimePicker.Value = DateTime.Now;
             activoCheckBox.Checked = false;
         }
 
@@ -71,7 +70,7 @@ namespace CrearRegistroConDetalle.UI.Registros
 
             if (confirmarTextBox.Text != claveTextBox.Text && confirmarTextBox.Text != "")
             {
-                UsuarioErrorProvider.SetError(confirmarTextBox, "Claves no coinciden");
+                UsuarioErrorProvider.SetError(confirmarTextBox, "Las Claves no coinciden");
                 paso = false;
             }
 
@@ -84,10 +83,10 @@ namespace CrearRegistroConDetalle.UI.Registros
             usuarios.UsuarioId = (int)UsuarioIdNumericUpDown.Value;
             usuarios.Nombres = nombresTextBox.Text;
             usuarios.Alias = aliasTextBox.Text;
-            usuarios.Clave = claveTextBox.Text;
+            usuarios.Clave = Utilitarios.GetSHA256(claveTextBox.Text);
             usuarios.RolId = RolComboBox.SelectedIndex;
             usuarios.Email = emailTextBox.Text;
-            usuarios.FechaIngreso = IngresoDateTimePicker.Value;
+            usuarios.FechaIngreso = DateTime.Now;
             usuarios.Activo = activoCheckBox.Checked;
 
             return usuarios;
@@ -100,7 +99,6 @@ namespace CrearRegistroConDetalle.UI.Registros
             nombresTextBox.Text = usuarios.Nombres;
             RolComboBox.SelectedIndex = usuarios.RolId;
             emailTextBox.Text = usuarios.Email;
-            IngresoDateTimePicker.Value = usuarios.FechaIngreso;
             activoCheckBox.Checked = usuarios.Activo;
         }
 
@@ -135,31 +133,17 @@ namespace CrearRegistroConDetalle.UI.Registros
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             Usuarios usuarios;
-            bool paso = false;
-
+            
             if (!Validar())
                 return;
 
             usuarios = LlenaClase();
+            var paso = UsuariosBLL.Guardar(usuarios);
 
-            //Determinar si es guardar o modificar
-            if (UsuarioIdNumericUpDown.Value == 0)
-            {
-                paso = UsuariosBLL.Guardar(usuarios, aliasTextBox.Text);
-            }
-            else
-            {
-                if (!ExisteEnBaseDeDatos())
-                {
-                    MessageBox.Show("No se puede modificar un usuario que no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                paso = UsuariosBLL.Modificar(usuarios);
-            }
             if (paso)
             {
                 Limpiar();
-                MessageBox.Show("El usuario ha sido guardado", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se guardó correctamente", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
                 MessageBox.Show("No se pudo guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

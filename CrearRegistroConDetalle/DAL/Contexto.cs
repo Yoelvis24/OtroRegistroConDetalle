@@ -27,6 +27,12 @@ namespace CrearRegistroConDetalle.DAL
                 new Permisos() { PermisoId = 2, Nombre = "Medio", Descripcion = "Acceso a algunas funciones", VecesAsignado = 0 },
                 new Permisos() { PermisoId = 3, Nombre = "Ninguno", Descripcion = "Sin acceso", VecesAsignado = 0 }
             );
+
+            modelBuilder.Entity<Usuarios>().HasData(
+                new Usuarios() { UsuarioId = 1, Alias = "Admin", Nombres = "Administrador", 
+                                FechaIngreso = DateTime.Now, Activo = true, RolId = 1, 
+                                Email = "admin@gmail.com", Clave = "12345"}
+                );
         }
     }
 }

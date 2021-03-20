@@ -11,6 +11,27 @@ namespace CrearRegistroConDetalle.BLL
 {
     public class UsuariosBLL
     {
+        public static bool ExisteCorreo(string correo, string clave)
+        {
+            bool encontrado = false;
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                encontrado = contexto.Usuarios.Any(e => e.Email == correo && e.Clave == Utilitarios.GetSHA256(clave));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return encontrado;
+        }
         public static bool ExisteAlias(string alias)
         {
             bool encontrado = false;
@@ -78,28 +99,12 @@ namespace CrearRegistroConDetalle.BLL
             return paso;
         }
 
-        public static bool Guardar(Usuarios usuarios, string nombre)
+        public static bool Guardar(Usuarios usuarios)
         {
-            bool paso = false;
-            Contexto contexto = new Contexto();
-
-            try
-            {
-                if (ExisteAlias(nombre))
-                    return paso;
-                if (contexto.Usuarios.Add(usuarios) != null)
-                    paso = contexto.SaveChanges() > 0;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-
-            return paso;
+            if (!ExisteAlias(usuarios.Alias))
+                return Insertar(usuarios);
+            else
+                return Modificar(usuarios);
         }
 
         public static bool Eliminar(int id)

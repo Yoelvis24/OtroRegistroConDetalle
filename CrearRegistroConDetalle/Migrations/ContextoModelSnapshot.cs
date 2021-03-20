@@ -133,6 +133,19 @@ namespace CrearRegistroConDetalle.Migrations
                     b.HasKey("UsuarioId");
 
                     b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            UsuarioId = 1,
+                            Activo = true,
+                            Alias = "Admin",
+                            Clave = "12345",
+                            Email = "admin@gmail.com",
+                            FechaIngreso = new DateTime(2021, 3, 20, 15, 41, 18, 542, DateTimeKind.Local).AddTicks(4892),
+                            Nombres = "Administrador",
+                            RolId = 1
+                        });
                 });
 
             modelBuilder.Entity("CrearRegistroConDetalle.Entidades.RolesDetalle", b =>
