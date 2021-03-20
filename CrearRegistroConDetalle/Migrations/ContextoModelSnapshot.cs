@@ -140,9 +140,9 @@ namespace CrearRegistroConDetalle.Migrations
                             UsuarioId = 1,
                             Activo = true,
                             Alias = "Admin",
-                            Clave = "12345",
+                            Clave = "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
                             Email = "admin@gmail.com",
-                            FechaIngreso = new DateTime(2021, 3, 20, 15, 41, 18, 542, DateTimeKind.Local).AddTicks(4892),
+                            FechaIngreso = new DateTime(2021, 3, 20, 19, 8, 42, 162, DateTimeKind.Local).AddTicks(4793),
                             Nombres = "Administrador",
                             RolId = 1
                         });

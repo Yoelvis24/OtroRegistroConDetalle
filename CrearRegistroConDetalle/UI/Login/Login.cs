@@ -25,7 +25,7 @@ namespace CrearRegistroConDetalle.UI.Login
 
         private void EntrarButton_Click(object sender, EventArgs e)
         {
-            if (!UsuariosBLL.ExisteCorreo(CorreoTextBox.Text, CLaveTextBox.Text))
+            if (UsuariosBLL.ExisteCorreo(CorreoTextBox.Text, CLaveTextBox.Text))
             {
                 var ventana = new MenuInicio();
                 ventana.Show();
