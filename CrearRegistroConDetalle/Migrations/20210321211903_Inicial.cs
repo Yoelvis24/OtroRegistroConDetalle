@@ -101,7 +101,12 @@ namespace CrearRegistroConDetalle.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "UsuarioId", "Activo", "Alias", "Clave", "Email", "FechaIngreso", "Nombres", "RolId" },
-                values: new object[] { 1, true, "Admin", "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5", "admin@gmail.com", new DateTime(2021, 3, 20, 19, 8, 42, 162, DateTimeKind.Local).AddTicks(4793), "Administrador", 1 });
+                values: new object[] { 1, true, "Admin", "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5", "admin@gmail.com", new DateTime(2021, 3, 21, 17, 19, 2, 683, DateTimeKind.Local).AddTicks(3972), "Administrador", 1 });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "UsuarioId", "Activo", "Alias", "Clave", "Email", "FechaIngreso", "Nombres", "RolId" },
+                values: new object[] { 2, true, "Admin2", "556d7dc3a115356350f1f9910b1af1ab0e312d4b3e4fc788d2da63668f36d017", "admin2@gmail.com", new DateTime(2021, 3, 21, 17, 19, 2, 744, DateTimeKind.Local).AddTicks(9867), "Segundo Administrador", 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_RolesDetalle_PermisoId",

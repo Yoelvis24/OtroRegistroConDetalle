@@ -32,7 +32,10 @@ namespace CrearRegistroConDetalle.DAL
             modelBuilder.Entity<Usuarios>().HasData(
                 new Usuarios() { UsuarioId = 1, Alias = "Admin", Nombres = "Administrador", 
                                 FechaIngreso = DateTime.Now, Activo = true, RolId = 1, 
-                                Email = "admin@gmail.com", Clave = Utilitarios.GetSHA256("12345")}
+                                Email = "admin@gmail.com", Clave = Utilitarios.GetSHA256("12345")},
+                new Usuarios() { UsuarioId = 2, Alias = "Admin2", Nombres = "Segundo Administrador",
+                                FechaIngreso = DateTime.Now, Activo = true, RolId = 1,
+                                Email = "admin2@gmail.com", Clave = Utilitarios.GetSHA256("333")}
                 );
         }
     }

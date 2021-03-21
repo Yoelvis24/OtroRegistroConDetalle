@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrearRegistroConDetalle.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210320230843_Inicial")]
+    [Migration("20210321211903_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -144,8 +144,19 @@ namespace CrearRegistroConDetalle.Migrations
                             Alias = "Admin",
                             Clave = "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5",
                             Email = "admin@gmail.com",
-                            FechaIngreso = new DateTime(2021, 3, 20, 19, 8, 42, 162, DateTimeKind.Local).AddTicks(4793),
+                            FechaIngreso = new DateTime(2021, 3, 21, 17, 19, 2, 683, DateTimeKind.Local).AddTicks(3972),
                             Nombres = "Administrador",
+                            RolId = 1
+                        },
+                        new
+                        {
+                            UsuarioId = 2,
+                            Activo = true,
+                            Alias = "Admin2",
+                            Clave = "556d7dc3a115356350f1f9910b1af1ab0e312d4b3e4fc788d2da63668f36d017",
+                            Email = "admin2@gmail.com",
+                            FechaIngreso = new DateTime(2021, 3, 21, 17, 19, 2, 744, DateTimeKind.Local).AddTicks(9867),
+                            Nombres = "Segundo Administrador",
                             RolId = 1
                         });
                 });
