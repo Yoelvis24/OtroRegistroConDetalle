@@ -12,6 +12,7 @@ namespace CrearRegistroConDetalle.UI.Consultas
 {
     public partial class ConsultaRoles : Form
     {
+        List<Roles> lista = new List<Roles>();
         public ConsultaRoles()
         {
             InitializeComponent();
@@ -19,27 +20,38 @@ namespace CrearRegistroConDetalle.UI.Consultas
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            var lista = new List<Roles>();
-
-
-            //Si usarFecha se encuentra cortejado
-            if (FiltroFechaCheckBox.Checked)
+            
+            //En caso de que TodosRadioButton se encuentre seleccionado
+            if (TodosRadioButton.Checked)
             {
-                lista = RolesBLL.GetList(l => l.FechaCreacion >= DesdeDateTimePicker.Value && l.FechaCreacion <= HastaDateTimePicker.Value);
-            }
-
-            //Si se selecciona Filtro Activo
-            if (FiltroActivoCheckBox.Checked)
-            {
-                //Si TodosRadioButton se encuentra seleccionado
-                if (TodosRadioButton.Checked)
+                //Si el filtro de la fecha se encuentra marcado, va a tomar en cuenta le rango de fecha
+                if (FiltroFechaCheckBox.Checked)
                 {
-                    //si CriterioTextBox no se encuentra vacio
                     if (!String.IsNullOrWhiteSpace(CriterioTextBox.Text))
                     {
                         switch (FiltroComboBox.SelectedIndex)
                         {
                             case 0: //RolId
+                                lista = RolesBLL.GetList(r => r.RolId == Utilitarios.ToInt(CriterioTextBox.Text) && (r.FechaCreacion >= DesdeDateTimePicker.Value && r.FechaCreacion <= HastaDateTimePicker.Value));
+                                break;
+                            case 1: //Descripcion
+                                lista = RolesBLL.GetList(r => r.Descripcion.Contains(CriterioTextBox.Text) && (r.FechaCreacion >= DesdeDateTimePicker.Value && r.FechaCreacion <= HastaDateTimePicker.Value));
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    //En caso de que no haya nada en el textBox, se imprimirán todos los Roles
+                    else
+                        lista = RolesBLL.GetList(r => (r.FechaCreacion >= DesdeDateTimePicker.Value && r.FechaCreacion <= HastaDateTimePicker.Value));
+                }
+                else
+                {
+                    if (!String.IsNullOrWhiteSpace(CriterioTextBox.Text))
+                    {
+                        switch (FiltroComboBox.SelectedIndex)
+                        {
+                            case 0: //UsuarioId
                                 lista = RolesBLL.GetList(r => r.RolId == Utilitarios.ToInt(CriterioTextBox.Text));
                                 break;
                             case 1: //Descripcion
@@ -49,11 +61,37 @@ namespace CrearRegistroConDetalle.UI.Consultas
                                 break;
                         }
                     }
+                    //En caso de que no haya nada en el textBox, se imprimirán todos los Roles
                     else
                         lista = RolesBLL.GetList(r => true);
                 }
-                //Si ActivosRadioButton se encuentra seleccionado
-                else if (ActivosRadioButton.Checked)
+
+            }
+            //En caso de que ActivosRadioButton se encuentre seleccionado
+            else if (ActivosRadioButton.Checked)
+            {
+                //Si el filtro de la fecha se encuentra marcado, va a tomar en cuenta le rango de fecha
+                if (FiltroFechaCheckBox.Checked)
+                {
+                    if (!String.IsNullOrWhiteSpace(CriterioTextBox.Text))
+                    {
+                        switch (FiltroComboBox.SelectedIndex)
+                        {
+                            case 0: //RolId
+                                lista = RolesBLL.GetList(r => r.RolId == Utilitarios.ToInt(CriterioTextBox.Text) && (r.FechaCreacion >= DesdeDateTimePicker.Value && r.FechaCreacion <= HastaDateTimePicker.Value) && r.EsActivo);
+                                break;
+                            case 1: //Descripcion
+                                lista = RolesBLL.GetList(r => r.Descripcion.Contains(CriterioTextBox.Text) && (r.FechaCreacion >= DesdeDateTimePicker.Value && r.FechaCreacion <= HastaDateTimePicker.Value) && r.EsActivo);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    //En caso de que no haya nada en el textBox, se imprimirán todos los Roles
+                    else
+                        lista = RolesBLL.GetList(r => (r.FechaCreacion >= DesdeDateTimePicker.Value && r.FechaCreacion <= HastaDateTimePicker.Value) && r.EsActivo);
+                }
+                else
                 {
                     if (!String.IsNullOrWhiteSpace(CriterioTextBox.Text))
                     {
@@ -63,17 +101,43 @@ namespace CrearRegistroConDetalle.UI.Consultas
                                 lista = RolesBLL.GetList(r => r.RolId == Utilitarios.ToInt(CriterioTextBox.Text) && r.EsActivo);
                                 break;
                             case 1: //Descripcion
-                                lista = RolesBLL.GetList(r => r.Descripcion.Contains(CriterioTextBox.Text.ToUpper()) && r.EsActivo || r.Descripcion.Contains(CriterioTextBox.Text.ToLower()) && r.EsActivo);
+                                lista = RolesBLL.GetList(r => r.Descripcion.Contains(CriterioTextBox.Text) && r.EsActivo);
                                 break;
                             default:
                                 break;
                         }
                     }
+                    //En caso de que no haya nada en el textBox, se imprimirán todos los Roles
                     else
-                        lista = RolesBLL.GetList(r => r.EsActivo);
+                        lista = RolesBLL.GetList(r => true && r.EsActivo);
                 }
-                //Si InactivosRadioButton se encuentra seleccionado
-                else if (InactivosRadioButton.Checked)
+
+            }
+            //En caso de que InactivosRadioButton se encuentre seleccionado
+            else if (InactivosRadioButton.Checked)
+            {
+                //Si el filtro de la fecha se encuentra marcado, va a tomar en cuenta le rango de fecha
+                if (FiltroFechaCheckBox.Checked)
+                {
+                    if (!String.IsNullOrWhiteSpace(CriterioTextBox.Text))
+                    {
+                        switch (FiltroComboBox.SelectedIndex)
+                        {
+                            case 0: //UsuarioId
+                                lista = RolesBLL.GetList(r => r.RolId == Utilitarios.ToInt(CriterioTextBox.Text) && (r.FechaCreacion >= DesdeDateTimePicker.Value && r.FechaCreacion <= HastaDateTimePicker.Value) && !r.EsActivo);
+                                break;
+                            case 1: //Alias
+                                lista = RolesBLL.GetList(r => r.Descripcion.Contains(CriterioTextBox.Text) && (r.FechaCreacion >= DesdeDateTimePicker.Value && r.FechaCreacion <= HastaDateTimePicker.Value) && !r.EsActivo);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    //En caso de que no haya nada en el textBox, se imprimirán todos los Roles
+                    else
+                        lista = RolesBLL.GetList(r => (r.FechaCreacion >= DesdeDateTimePicker.Value && r.FechaCreacion <= HastaDateTimePicker.Value) && !r.EsActivo);
+                }
+                else
                 {
                     if (!String.IsNullOrWhiteSpace(CriterioTextBox.Text))
                     {
@@ -83,35 +147,17 @@ namespace CrearRegistroConDetalle.UI.Consultas
                                 lista = RolesBLL.GetList(r => r.RolId == Utilitarios.ToInt(CriterioTextBox.Text) && !r.EsActivo);
                                 break;
                             case 1: //Descripcion
-                                lista = RolesBLL.GetList(r => r.Descripcion.Contains(CriterioTextBox.Text.ToUpper()) && !r.EsActivo || r.Descripcion.Contains(CriterioTextBox.Text.ToLower()) && !r.EsActivo);
+                                lista = RolesBLL.GetList(r => r.Descripcion.Contains(CriterioTextBox.Text) && !r.EsActivo);
                                 break;
                             default:
                                 break;
                         }
                     }
+                    //En caso de que no haya nada en el textBox, se imprimirán todos los Roles
                     else
-                        lista = RolesBLL.GetList(r => !r.EsActivo);
+                        lista = RolesBLL.GetList(r => true && !r.EsActivo);
                 }
-            }
-            else
-            {
-                //si CriterioTextBox no se encuentra vacio y FiltroActivo no se encuentra cortejado
-                if (!String.IsNullOrWhiteSpace(CriterioTextBox.Text))
-                {
-                    switch (FiltroComboBox.SelectedIndex)
-                    {
-                        case 0: //RolId
-                            lista = RolesBLL.GetList(r => r.RolId == Utilitarios.ToInt(CriterioTextBox.Text));
-                            break;
-                        case 1: //Descripcion
-                            lista = RolesBLL.GetList(r => r.Descripcion.Contains(CriterioTextBox.Text));
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                else
-                    lista = RolesBLL.GetList(r => true);
+
             }
 
             ConsultarRolesDataGridView.DataSource = null;
